@@ -1,88 +1,44 @@
-let myObjectArr = [
-    {
-        "name":"Max",
-        "is_a_good_guy": true 
-    },
-    {
-        "name":"Peter",
-        "is_a_good_guy": false 
-    },
-    {
-        "name":"Arnold",
-        "is_a_good_guy": true 
-    },
-    {
-        "name":"Justus",
-        "is_a_good_guy": true 
-    },
-    {
-        "name":"Bombur",
-        "is_a_good_guy": false 
-    }
-];
+const BASE_URL = "https://pokeapi.co/api/v2/";
+let pokemonDBArray = [];
+const amountOfLoad = 3;
+let startLoadIndex = pokemonDBArray.length ;
 
-let library = {
-    "info": {
-      "name": "Stadtbibliothek",
-      "location": {
-        "city": "Musterstadt",
-        "coordinates": { "lat": 48.1351, "lon": 11.582 }
+
+function onload() {
+  makePokemonArray();
+}
+
+
+async function loadPokemonData() {
+  let response = await fetch(BASE_URL + makeOffsetString());
+  let responseToJson = await response.json();
+  console.log(responseToJson);
+  return responseToJson.results;
+}
+
+function makeOffsetString() {
+  return `pokemon?limit=${amountOfLoad}&offset=${startLoadIndex}`;
+}
+
+async function makePokemonArray() {
+  let pokemonData = await loadPokemonData();
+  let pokemonArray = Object.entries(pokemonData);
+  for (let index = 0; index < pokemonArray.length; index++) {
+    pokemonDBArray.push(
+      {
+        name: pokemonArray[index][1].name,
+        url: pokemonArray[index][1].url
       }
-    },
-    "sections": {
-      "fiction": [
-        {
-          "shelf": 1,
-          "book": {
-            "title": "Die Verwandlung",
-            "author": {
-              "name": "Franz Kafka",
-              "born": "1883-07-03",
-              "died": "1924-06-03"
-            },
-            "year": 1915,
-            "status": "ausgeliehen"
-          }
-        },
-        {
-          "shelf": 2,
-          "book": {
-            "title": "1984",
-            "author": {
-              "name": "George Orwell",
-              "born": "1903-06-25",
-              "died": "1950-01-21"
-            },
-            "year": 1949,
-            "status": "verfügbar"
-          }
-        }
-      ],
-      "nonFiction": [
-        {
-          "shelf": 3,
-          "book": {
-            "title": "Eine kurze Geschichte der Zeit",
-            "author": {
-              "name": "Stephen Hawking",
-              "born": "1942-01-08",
-              "died": "2018-03-14"
-            },
-            "year": 1988,
-            "status": "verfügbar"
-          }
-        }
-      ]
-    }
+    )
   }
+  console.log(pokemonArray);
+  console.log(pokemonDBArray);
 
-  console.log(library.sections.fiction[1].book.title);
+}
 
-  for (let index = 0; index < library.sections.fiction.length; index++) {
-    const element = library.sections.fiction[index].book.title;
-    console.log(element);
-    
-  }
-  
-
+async function loadMorePokemons() {
+  startLoadIndex += amountOfLoad;
+  console.log(startLoadIndex);
+ makePokemonArray();
+}
 
