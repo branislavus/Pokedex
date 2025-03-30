@@ -74,7 +74,7 @@ function renderPokemonCards() {
   for (let pokemon of pokemonNamesURLsArray) {
     pokemonRenderSectionRef.innerHTML += `
       <div class="pokemon-card">
-        <h3>${pokemon.name}</h3>
+        <h3>#${pokemon.id} ${pokemon.name}</h3>
         <a href="${pokemon.url}" target="_blank">Details</a>
         <div class="card" style="width: 18rem;">
           <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png" class="card-img-top" alt="pokemon picture ${pokemon.name}">
