@@ -1,44 +1,79 @@
 const BASE_URL = "https://pokeapi.co/api/v2/";
-let pokemonDBArray = [];
-const amountOfLoad = 3;
-let startLoadIndex = pokemonDBArray.length ;
+let START_URL = "https://pokeapi.co/api/v2/pokemon?offset=0&limit=20";
+let previousPokemonURL = "";
+let nextPokemonURL = "";
+let pokemonTotalAmount = 0;
+let POKEMON_URL = [];
+let pokemonNamesURLsArray = [];
+let pokemonAllInformationsArray = [];
+const amountOfLoad = 20;
+let startLoadIndex = pokemonNamesURLsArray.length;
+
+const pokemonRenderSectionRef = document.getElementById("pokemonRenderSection");
 
 
-function onload() {
-  makePokemonArray();
-}
-
-
-async function loadPokemonData() {
-  let response = await fetch(BASE_URL + makeOffsetString());
-  let responseToJson = await response.json();
-  console.log(responseToJson);
-  return responseToJson.results;
-}
-
-function makeOffsetString() {
-  return `pokemon?limit=${amountOfLoad}&offset=${startLoadIndex}`;
+async function onload() {
+  await makePokemonArray();
+  console.log(pokemonTotalAmount);
+  
+  console.log(nextPokemonURL);
+  console.log(previousPokemonURL);
+  console.log(pokemonNamesURLsArray);
+  renderPokemonCards()
 }
 
 async function makePokemonArray() {
   let pokemonData = await loadPokemonData();
-  let pokemonArray = Object.entries(pokemonData);
-  for (let index = 0; index < pokemonArray.length; index++) {
-    pokemonDBArray.push(
-      {
-        name: pokemonArray[index][1].name,
-        url: pokemonArray[index][1].url
-      }
-    )
+  pokemonTotalAmount = pokemonData.count;
+  previousPokemonURL = pokemonData.previous;
+  nextPokemonURL = pokemonData.next;
+
+  for (let pokemon of pokemonData.results) {
+    pokemonNamesURLsArray.push({
+      name: pokemon.name,
+      url: pokemon.url,
+    });
   }
-  console.log(pokemonArray);
-  console.log(pokemonDBArray);
-
 }
 
-async function loadMorePokemons() {
-  startLoadIndex += amountOfLoad;
-  console.log(startLoadIndex);
- makePokemonArray();
+async function loadPokemonData() {
+  let response = await fetch(makeOffsetString());
+  let responseToJson = await response.json();
+  return responseToJson;
 }
 
+function makeOffsetString() {
+  return START_URL;
+}
+
+async function loadPreviousPokemons() {
+  if (previousPokemonURL == "") {
+    return;
+  } else {
+    START_URL = previousPokemonURL;
+  }
+ await makePokemonArray();
+ renderPokemonCards();
+}
+
+async function loadNextPokemons() {
+  if (nextPokemonURL == "") {
+    return;
+  } else {
+    START_URL = nextPokemonURL;
+  }
+  await makePokemonArray();
+  renderPokemonCards();
+}
+
+function renderPokemonCards() {
+  pokemonRenderSectionRef.innerHTML = ""; // Clear existing content
+  for (let pokemon of pokemonNamesURLsArray) {
+    pokemonRenderSectionRef.innerHTML += `
+      <div class="pokemon-card">
+        <h3>${pokemon.name}</h3>
+        <a href="${pokemon.url}" target="_blank">Details</a>
+      </div>
+    `;
+  }
+}
