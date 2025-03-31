@@ -47,3 +47,11 @@
     margin: 8px;
     cursor: pointer;
 }
+
+.overlayPokemonCard{
+    border: #A0A0A0 2px solid;
+    border-radius: 6px;
+    padding: 8px;
+    margin: 8px;
+    cursor: pointer;
+}
