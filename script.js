@@ -10,6 +10,7 @@ let pokemonALLNamesURLsArray1302 = [];
 let pokemonALLNamesURLsArray1302fromLSBD = [];
 let errorURLS_from_1302 = [];
 let pokemonAllInformationsArray = [];
+let currentPokemonArray = [];
 const amountOfLoad = 20;
 let startLoadIndex = pokemonNamesURLsArray.length;
 
@@ -103,7 +104,7 @@ function renderPokemonCards() {
   pokemonRenderSectionRef.innerHTML = ""; // Clear existing content
   for (let i = 0; i < pokemonNamesURLsArray.length; i++) {
     pokemonRenderSectionRef.innerHTML += `
-      <div class="pokemon-card" onclick="pokemonOverlayCard(${[i]})">
+      <div class="pokemon-card" id="${pokemonNamesURLsArray[i].name}" onclick="pokemonOverlayCard('${pokemonNamesURLsArray[i].name}')">
         <h3>#${pokemonNamesURLsArray[i].id} ${pokemonNamesURLsArray[i].name}</h3>
         <a href="${pokemonNamesURLsArray[i].url}" target="_blank">Details</a>
         <div class="card" style="width: 18rem;">
