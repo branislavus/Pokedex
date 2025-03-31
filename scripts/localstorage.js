@@ -17,18 +17,15 @@
 // }
 
 // function saveToLocalStorage(){
-//     localStorage.setItem("notes", JSON.stringify(notes));
-//     localStorage.setItem("notesTitles", JSON.stringify(notesTitles));
+//     localStorage.setItem("pokemonsLocalDB", JSON.stringify(notes));
 // }
 
 // function getFromLocalStorage() {
-//     let myNotes = JSON.parse(localStorage.getItem("notes"));
-//     let myNotesTitles = JSON.parse(localStorage.getItem("notesTitles"));
-//     if(myNotes == null & myNotesTitles == null ){
+//     let myPokemons = JSON.parse(localStorage.getItem("pokemonsLocalDB"));
+//     if(myPokemons == null){
 //         return;
 //     }
-//     notes = myNotes;
-//     notesTitles = myNotesTitles;
+//     pokemonALLNamesURLsArray1302fromLSBD = myPokemons;
 // }
 
 // function render(){

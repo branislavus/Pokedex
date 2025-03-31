@@ -34,3 +34,16 @@
 .color-gray { background-color: #A0A0A0; }
 .color-white { background-color: #F8F9FA; }
 .color-pink { background-color: #FF69B4; }
+
+#pokemonRenderSection{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.pokemon-card{
+    border: #A0A0A0 2px solid;
+    border-radius: 6px;
+    padding: 8px;
+    margin: 8px;
+    cursor: pointer;
+}
