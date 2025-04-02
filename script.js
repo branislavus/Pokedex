@@ -97,8 +97,8 @@ async function loadNextPokemons() {
 }
 
 function renderPokemonCards() {
-  pokemonRenderSectionRef.innerHTML = ""; // Clear existing content
-  for (let i = 0; i < pokemonNamesURLsArray.length; i++) {
+  pokemonRenderSectionRef.innerHTML = "";
+  for (let i = 0; i < pokemonNamesURLsArray.length; i++) {  
     pokemonRenderSectionRef.innerHTML += `
       <div class="pokemon-card" id="${pokemonNamesURLsArray[i].name}" onclick="pokemonOverlayCard('${pokemonNamesURLsArray[i].name}')">
         <h3>#${pokemonNamesURLsArray[i].id} ${pokemonNamesURLsArray[i].name}</h3>
@@ -112,4 +112,16 @@ function renderPokemonCards() {
       </div>
     `;
   }
+}
+// to be continiuded
+async function getPokemonTypes(pokemon) {
+  let currentPokemonTypes = [];
+  let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
+  let data = await response.json();
+  currentPokemonTypes.push({
+      type: data.types.map(typeInfo => typeInfo.type.name),
+      });
+      currentPokemonTypes.forEach(element => {
+        return `<p>${element.type}</p>`;
+      });
 }

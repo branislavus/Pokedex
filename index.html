@@ -1,95 +1,114 @@
 <!DOCTYPE html>
 <html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokedex</title>
-    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
-    <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="./styles/standard.css">
-    <link rel="stylesheet" href="./fonts/fonts.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="./scripts/localstorage.js"></script>
-    <script src="./scripts/templates.js"></script>
-    <script src="./scripts/allPokemonData.js"></script>
-</head>
-<body onload="onload()">
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Pokedex</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-              </li>
-            </ul>
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-          </div>
-        </div>
-      </nav>
 
-      <div id="pokemonOverlaySection">
-        <div id="overlayPokemonCard" class="overlayPokemonCard" style="width: 32rem;">
-          <img src="" class="card-img-top" alt="">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          </div>
-          <ul class="nav nav-tabs">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Active</a>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokedex</title>
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./styles/standard.css">
+  <link rel="stylesheet" href="./fonts/fonts.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="./scripts/localstorage.js"></script>
+  <script src="./scripts/templates.js"></script>
+  <script src="./scripts/allPokemonData.js"></script>
+  <script src="./scripts/onclick.js"></script>
+</head>
+
+<body onload="onload()">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Pokedex</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <div id="pokemonOverlaySection">
+    <div id="overlayPokemonCard" class="overlayPokemonCard" style="width: 32rem;">
+      <img src="" class="card-img-top" alt="">
+      <div class="card-body">
+        <h5 class="card-title">Pikachu</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+          content.</p>
+      </div>
+      <div class="card text-center">
+        <div class="card-header">
+          <ul class="nav nav-tabs card-header-tabs">
+            <li class="nav-item" >
+              <a id="mainOnClick" class="nav-link nav-link-Main-Stats-Evo active" aria-current="true" href="#" onclick="activeOnClick('mainOnClick')">Main</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
+            <li class="nav-item" >
+              <a id="statsOnClick" class="nav-link nav-link-Main-Stats-Evo" href="#" onclick="activeOnClick('statsOnClick')">Stats</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+            <li class="nav-item" >
+              <a id="evochainOnClick" class="nav-link nav-link-Main-Stats-Evo" aria-disabled="true" onclick="activeOnClick('evochainOnClick')">Evo-Chain</a>
             </li>
           </ul>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">An item</li>
-            <li class="list-group-item">A second item</li>
-            <li class="list-group-item">A third item</li>
-          </ul>
-          <div class="card-body">
-            <a href="#" class="card-link">Card link</a>
-            <a href="#" class="card-link">Another link</a>
-          </div>
+        </div>
+        <div class="card-body card-body-Main" id="cardBodyMain" >
+          <h5 class="card-title">Main Card</Main></h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        </div>
+        <div class="card-body card-Stats d_none" id="cardBodyStats">
+          <h5 class="card-title">Stats Card</Main></h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        </div>
+        <div class="card-body card-body-Evo-Chain d_none" id="cardBodyEvoChain">
+          <h5 class="card-title">Evo-chain Card</Main></h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
         </div>
       </div>
-      <div id="pokemonRenderSection">
-       
+      <div class="cardButtons">
+        <a href="#" class="btn btn-primary cardButtonsDesign">previous Card</a>
+        <a href="#" class="btn btn-primary cardButtonsDesign">next Card</a>
       </div>
-      <button type="button" class="btn btn-primary" onclick="loadPreviousPokemons()">Load previous Pokemons</button>
-      <button type="button" class="btn btn-primary" onclick="loadNextPokemons()">Load next Pokemons</button>
-    
-      <script src="./script.js"></script>
+    </div>
+  </div>
+  <div id="pokemonRenderSection">
+
+  </div>
+  <button type="button" class="btn btn-primary" onclick="loadPreviousPokemons()">Load previous Pokemons</button>
+  <button type="button" class="btn btn-primary" onclick="loadNextPokemons()">Load next Pokemons</button>
+
+  <script src="./script.js"></script>
 </body>
+
 </html>

@@ -8,3 +8,11 @@
 a {
     text-decoration: none;
 }
+
+.d_none{
+    display: none;
+}
+
+.d_block{
+    display: block;
+}
