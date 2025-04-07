@@ -84,7 +84,7 @@ function renderPokemonCards() {
         <div class="card" style="width: 18rem;">
           <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonNamesURLsArray[i].id}.png" class="card-img-top" alt="pokemon picture ${pokemonNamesURLsArray[i].name}">
           <div class="card-body">
-            <p class="card-text" id="pokemon-card-type${i+1}">${pokemonNamesURLsArray[i].name}</p>
+            <p class="card-text" id="pokemon-card-type${i}">${pokemonNamesURLsArray[i].name}</p>
           </div>
         </div>
       </div>

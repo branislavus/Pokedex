@@ -1,6 +1,6 @@
 async function getPokemonTypes(id,name) {
  let PokemonTypes = [];
- let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`);
+ let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id + 1}/`);
  let data = await response.json(); 
  console.log("moje data:",data);
  
