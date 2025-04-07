@@ -14,14 +14,16 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
+    <script src="./scripts/functionsforoverlaycard.js"></script>
   <script src="./scripts/localstorage.js"></script>
   <script src="./scripts/templates.js"></script>
-  <script src="./scripts/allPokemonData.js"></script>
+  <!-- <script src="./scripts/allPokemonIdNameURL.js"></script> -->
   <script src="./scripts/onclick.js"></script>
   <script src="./scripts/overlay.js"></script>
 </head>
 
 <body onload="onload()">
+
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Pokedex</a>
@@ -63,16 +65,17 @@
   </nav>
 
   <div id="pokemonOverlaySection">
-    <div id="overlay" class="overlay hidden">
-
-      <div id="overlayPokemonCard" class="overlayPokemonCard" style="width: 32rem;">
-        <img src="" class="card-img-top" alt="">
+    <div id="overlay" class="overlay">
+      <div id="cardInOverlay" class="cardInOverlay">
+          
+       
         <div class="card-body">
-          <h5 class="card-title">Pikachu</h5>
+          <h5 class="card-title">#id Pikachu</h5>
+          <img src="" class="card-img-top" alt="pokemon picture">
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
             content.</p>
         </div>
-        <div class="card text-center">
+        <div class="card text-center groupcard-main-stats-evo">
           <div class="card-header">
             <ul class="nav nav-tabs card-header-tabs">
               <li class="nav-item" >
@@ -119,11 +122,12 @@
           <a href="#" class="btn btn-primary cardButtonsDesign">previous Card</a>
           <a href="#" class="btn btn-primary cardButtonsDesign">next Card</a>
         </div>
-      </div>
+        
 
+      </div> 
     </div>
-
   </div>
+  
   <div id="pokemonRenderSection">
 
   </div>

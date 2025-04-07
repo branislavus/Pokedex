@@ -87,8 +87,8 @@
 /* Das Overlay, das den Hintergrund abdunkelt */
 .overlay {
     position: fixed;
-    top: 0;
-    left: 0;
+    top: ccalc (100% - 150px / 2);
+    left: calc (100% - 150px / 2);
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5); /* Abdunkelung */
@@ -97,6 +97,8 @@
     justify-content: center;
     align-items: center;
     z-index: 1000;
+    display: flex;
+    flex-direction: column;
   }
   
   /* Verstecke das Overlay standardmäßig */
@@ -113,4 +115,32 @@
     width: 32rem;
     max-width: 90%;
     z-index: 1001;
+  }
+
+  .cardInOverlay{
+    width: 400px;
+    height: 600px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+  }
+
+  .groupcard-main-stats-evo{
+    height: 200px;
+    width: 100%;
+  }
+
+  .page-Main-Stats-Evo{
+    height: 220px;
+    width: 100%;
+  }
+
+  .card-text-main-stats-evo{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }

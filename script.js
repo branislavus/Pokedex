@@ -13,11 +13,13 @@ let currentPokemonArray = [];
 let startLoadIndex = pokemonNamesURLsArray.length;
 
 const pokemonRenderSectionRef = document.getElementById("pokemonRenderSection");
+const overlay = document.getElementById("overlay");
+const cardInOverlayRef = document.getElementById("cardInOverlay");
 
 async function onload() {
   await makePokemonArray();
   renderPokemonCards();
-  await get1302pokemonData(); 
+  // await get1302pokemonData(); load all 1302 pokemons in pokemonALLNamesURLsArray1302 array
 }
 
 async function makePokemonArray() {
@@ -44,27 +46,6 @@ function makeOffsetString() {
   return START_URL;
 }
 
-async function get1302pokemonData() {
-  pokemonALLNamesURLsArray1302 = [];
-  let urls = generatePokemonURLs();
-  let promises = urls.map(async (url) => {
-      try {
-          let response = await fetch(url);
-          let data = await response.json();
-          pokemonALLNamesURLsArray1302.push({
-              id: data.id,
-              name: data.name,
-              url: url,
-          });
-      } catch (error) {
-          errorURLS_from_1302.push(url);
-      }
-    });
-  await Promise.all(promises);
-  pokemonALLNamesURLsArray1302.sort((a, b) => a.id - b.id);
-  console.log(pokemonALLNamesURLsArray1302);  
-}
-
 function generatePokemonURLs() {
   let urls = [];
   for (let index = 1; index <= pokemonTotalAmount; index++) {
@@ -72,9 +53,6 @@ function generatePokemonURLs() {
   }
   return urls;
 }
-
-
-
 
 async function loadPreviousPokemons() {
   if (previousPokemonURL == "") {
@@ -112,16 +90,4 @@ function renderPokemonCards() {
       </div>
     `;
   }
-}
-// to be continiuded
-async function getPokemonTypes(pokemon) {
-  let currentPokemonTypes = [];
-  let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
-  let data = await response.json();
-  currentPokemonTypes.push({
-      type: data.types.map(typeInfo => typeInfo.type.name),
-      });
-      currentPokemonTypes.forEach(element => {
-        return `<p>${element.type}</p>`;
-      });
 }
