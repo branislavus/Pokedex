@@ -80,11 +80,10 @@ function renderPokemonCards() {
     pokemonRenderSectionRef.innerHTML += `
       <div class="pokemon-card" id="${pokemonNamesURLsArray[i].name}" onclick="pokemonOverlayCard('${pokemonNamesURLsArray[i].name}')">
         <h3>#${pokemonNamesURLsArray[i].id} ${pokemonNamesURLsArray[i].name}</h3>
-        <a href="${pokemonNamesURLsArray[i].url}" target="_blank">Details</a>
         <div class="card" style="width: 18rem;">
           <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonNamesURLsArray[i].id}.png" class="card-img-top" alt="pokemon picture ${pokemonNamesURLsArray[i].name}">
-          <div class="card-body">
-            <p class="card-text" id="pokemon-card-type${i}">${pokemonNamesURLsArray[i].name}</p>
+          <div class="card-body ">
+            <div class="card-badges" id="pokemon-card-type${i}"></div>
           </div>
         </div>
       </div>

@@ -5,15 +5,33 @@ async function getPokemonTypes(id,name) {
  console.log("moje data:",data);
  
     let types = data.types.map(type => type.type.name);
+    types.forEach(type => {
+        document.getElementById(`pokemon-card-type${id}`).innerHTML += `<div class="badgeOfType type-${ type}">${type}</div>
+        `;    
+    });
+
     PokemonTypes.push(...types);
     let typesString = PokemonTypes.join(" ");
  
    
-    document.getElementById(`pokemon-card-type${id}`).innerHTML += `<h6 class="card-title">${typesString}</h6>`;
+    
+
+    let cardElement = document.getElementById(name);
+    if (!cardElement) {
+        console.error(`HTML-Element mit ID "${name}" wurde nicht gefunden.`);
+        return;
+    }
+
+    // Wenn es zwei Typen gibt, setze einen linear-gradient-Hintergrund
+    if (PokemonTypes.length === 2) {
+        cardElement.style.backgroundImage = `linear-gradient(to bottom right, var(--type-${PokemonTypes[0]}), var(--type-${PokemonTypes[1]}))`;
+    } else if (PokemonTypes.length === 1) {
+        // Wenn es nur einen Typ gibt, setze eine einfarbige Hintergrundfarbe
+        cardElement.style.backgroundColor = `var(--type-${PokemonTypes[0]})`;
+    }
+
     PokemonTypes.forEach(element => {
-        document.getElementById(`${name}`).classList.add("type-"+ element);
-    ;  });
+        cardElement.classList.add("type-" + element);
+      });
  
 }
-
-getPokemonTypes();
