@@ -17,8 +17,6 @@ const pokemonRenderSectionRef = document.getElementById("pokemonRenderSection");
 const overlay = document.getElementById("overlay");
 const cardInOverlayRef = document.getElementById("cardInOverlay");
 const topCardToFillRef = document.getElementById("topCardToFill");
-const underImageSectionRef = document.getElementById("underImageSection");
-const imageSectionRef = document.getElementById("imageSection");
 
 async function onload() {
   await makePokemonArray();
