@@ -8,17 +8,12 @@ function getPokemonCardTemplate(noteIndex) {
 }
 
 function getPokemonOverlayCard(pokemon){
- return `<div class="card-body">
-          
-          <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png" class="card-img-top" alt="pokemon picture ${pokemon.name}">
-          <div id="underImageSection" class="underImageSection">
-          <h5 class="card-title">#${pokemon.id}</h5>
-          <h5 class="card-title">${pokemon.name}</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-            content.</p>
+ return `<div id="topCardToFill" class="card-body">
+            <div id="imageSection" class="imageSection">
+            </div>
+            <div id="underImageSection" class="underImageSection">
+            </div>
           </div>
-          
-        </div>
         <div class="card text-center groupcard-main-stats-evo">
           <div class="card-header">
             <ul class="nav nav-tabs card-header-tabs">
@@ -34,7 +29,7 @@ function getPokemonOverlayCard(pokemon){
             </ul>
           </div>
           <div class="card-body page-Main-Stats-Evo" id="cardBodyMain" >
-            <h5 class="card-title">Main Card</Main></h5>
+            <h5 class="card-title">Main Card</h5>
             <p class="card-text card-text-main-stats-evo">
               <span id="height" class="">Height :</span>
               <span id="weight" class="">Weight :</span>
@@ -43,18 +38,18 @@ function getPokemonOverlayCard(pokemon){
             </p>
           </div>
           <div class="card-body page-Main-Stats-Evo d_none" id="cardBodyStats">
-            <h5 class="card-title">Stats Card</Main></h5>
+            <h5 class="card-title">Stats Card</h5>
             <p class="card-text card-text-main-stats-evo">
-              <span id="height" class="">Hp :</span>
-              <span id="weight" class="">Atack :</span>
-              <span id="weight" class="">Special-A :</span>
-              <span id="base-experience" class="">Defense :</span>
-              <span id="weight" class="">Special-D :</span>
-              <span id="abilities" class="">Speed :</span>
+              <span id="Hp" class="">Hp :</span>
+              <span id="Atack" class="">Atack :</span>
+              <span id="Special-A" class="">Special-A :</span>
+              <span id="Defense" class="">Defense :</span>
+              <span id="Special-D" class="">Special-D :</span>
+              <span id="Speed" class="">Speed :</span>
             </p>
           </div>
           <div class="card-body page-Main-Stats-Evo d_none" id="cardBodyEvoChain">
-            <h5 class="card-title">Name1 - Name2 - Name3</Main></h5>
+            <h5 class="card-title">Name1 - Name2 - Name3</h5>
             <div id="evo-pictures" class="evo-pictures">
               <div id="evo-picture1" class="evo-picture"></div>
               <div id="evo-picture2" class="evo-picture"></div>

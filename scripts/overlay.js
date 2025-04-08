@@ -8,7 +8,7 @@ async function pokemonOverlayCard(pokemonName) {
   }
   cardInOverlayRef.innerHTML = getPokemonOverlayCard(pokemon);
   overlay.classList.remove("hidden");
-  fillOverlayCard(pokemon);
+  fillOverlayCard(pokemon);  
 }
 
 function closeOverlay() {
@@ -17,7 +17,6 @@ function closeOverlay() {
   document.addEventListener("DOMContentLoaded", () => {
     const overlay = document.getElementById("overlay");
     if (!overlay) {
-        console.error("Das Overlay-Element wurde nicht gefunden.");
         return;
     }
     overlay.addEventListener("click", (event) => {

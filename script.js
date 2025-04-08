@@ -1,3 +1,4 @@
+const BASE_URL2 = "https://pokeapi.co/api/v2/pokemon/";
 const BASE_URL = "https://pokeapi.co/api/v2/";
 let START_URL = "https://pokeapi.co/api/v2/pokemon?offset=0&limit=20";
 let POKEMON_URL = [];
@@ -15,6 +16,9 @@ let startLoadIndex = pokemonNamesURLsArray.length;
 const pokemonRenderSectionRef = document.getElementById("pokemonRenderSection");
 const overlay = document.getElementById("overlay");
 const cardInOverlayRef = document.getElementById("cardInOverlay");
+const topCardToFillRef = document.getElementById("topCardToFill");
+const underImageSectionRef = document.getElementById("underImageSection");
+const imageSectionRef = document.getElementById("imageSection");
 
 async function onload() {
   await makePokemonArray();
