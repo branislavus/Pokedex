@@ -145,6 +145,10 @@
     z-index: 1001;
   }
 
+  .overlayCardIdName{
+    width: 50%;
+  }
+
   .cardInOverlay{
     width: 600px;
     height: 900px;
@@ -191,4 +195,10 @@
     justify-content: center;
     align-items: center;
     font-weight: 600;
+  }
+
+  .underImageSection{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
   }

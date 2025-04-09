@@ -11,8 +11,6 @@ async function fillOverlayCard(pokemon) {
     }
 }
 
-
-
 async function fillTopCard(data) {
     await fillTopCardIdName(data);
     await fillTopCardbadges(data);
@@ -23,7 +21,7 @@ async function fillTopCardIdName(data) {
     const underImageSectionRef = document.getElementById("underImageSection");
     let id = data.id;
     let name = data.name;
-        underImageSectionRef.innerHTML += `<h5 class="card-title">#${id} ${name}</h5>`;
+    underImageSectionRef.innerHTML += `<h5 id="overlayCardIdName" class="card-title">#${id} ${name.charAt(0).toUpperCase() + name.slice(1)}</h5>`;
 }
 
 async function fillTopCardbadges(data) {
@@ -42,32 +40,65 @@ async function fillTopCardSprites(data) {
 }
 
 
-const showDataToFillTopCard = (data) => {
-    const { id, name, sprites, types } = data;
-    const { type } = types;
-    underImageSectionRef.innerHTML = types.map((item) => {
-        const { type } = item;
-        return `
-            <div class="badgeOfType type-${type.name}">${type.name}</div>
-        `;
-    }).join("");
-    topCardToFillRef.innerHTML = `
-        <div class="card">
-            <div class="card-body">
-                 <img src="${sprites.other['official-artwork'].front_default}" class="card-img-top" alt="pokemon picture ${name}">
-                 <h5 class="card-title">#${id} ${name}</h5>
-            </div>
+
+
+
+
+
+async function fillMainCard(data) {
+
+    await fillMainCardHeightWeightBaseExperience(data);
+    await fillMainCardAbilities(data);
+}
+
+async function fillMainCardHeightWeightBaseExperience(data) {
+    let cardMainSectionRef = document.getElementById("cardMainSection");
+    let height = data.height;
+    let weight = data.weight;
+    let baseExperience = data.base_experience;
+    cardMainSectionRef.innerHTML += `
+    <table>
+    <tr>
+      <td>Height</td>
+      <td>${height} m</td>
+      <td>
+        <div class="progress" role="progressbar" aria-label="Default striped example" aria-valuenow="${height}" aria-valuemin="0" aria-valuemax="100">
+  <div class="progress-bar progress-bar-striped" style="width: ${height}%"></div>
+</div>
+      </td>
+    </tr>
+    <tr>
+      <td>Weight</td>
+      <td>${weight} kg</td>
+      <td>
+        <div class="progress" role="progressbar" aria-label="Default striped example" aria-valuenow="${weight}" aria-valuemin="0" aria-valuemax="100">
+             <div class="progress-bar progress-bar-striped" style="width: ${weight}%"></div>
         </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Base Experience</td>
+      <td>${baseExperience} xp</td>
+      <td>
+        <div class="progress" role="progressbar" aria-label="Default striped example" aria-valuenow="${baseExperience}" aria-valuemin="0" aria-valuemax="100">
+  <div class="progress-bar progress-bar-striped" style="width: ${baseExperience}%"></div>
+</div>
+      </td>
+    </tr>
+    <tr>
+      <td>Abilities</td>
+      <td></td>
+      <td>
+        <div class="bar-container">
+          <div class="bar" style="width: 0%; background-color: #2196F3;"></div>
+        </div>
+      </td>
+    </tr>
+  </table>
         `;
 }
 
 
-
-
-
-function fillMainCard() {
-
-}
 
 function fillStatsCard() {
 

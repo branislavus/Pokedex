@@ -81,7 +81,7 @@ function renderPokemonCards() {
   for (let i = 0; i < pokemonNamesURLsArray.length; i++) {  
     pokemonRenderSectionRef.innerHTML += `
       <div class="pokemon-card" id="${pokemonNamesURLsArray[i].name}" onclick="pokemonOverlayCard('${pokemonNamesURLsArray[i].name}')">
-        <h3>#${pokemonNamesURLsArray[i].id} ${pokemonNamesURLsArray[i].name}</h3>
+        <h3>#${pokemonNamesURLsArray[i].id} ${pokemonNamesURLsArray[i].name.charAt(0).toUpperCase() +  pokemonNamesURLsArray[i].name.slice(1)}</h3>
         <div class="card" style="width: 18rem;">
           <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonNamesURLsArray[i].id}.png" class="card-img-top" alt="pokemon picture ${pokemonNamesURLsArray[i].name}">
           <div class="card-body ">
