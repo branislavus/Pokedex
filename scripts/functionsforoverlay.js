@@ -48,54 +48,57 @@ async function fillTopCardSprites(data) {
 async function fillMainCard(data) {
 
     await fillMainCardHeightWeightBaseExperience(data);
-    await fillMainCardAbilities(data);
+;
 }
 
 async function fillMainCardHeightWeightBaseExperience(data) {
     let cardMainSectionRef = document.getElementById("cardMainSection");
-    let height = data.height;
-    let weight = data.weight;
-    let baseExperience = data.base_experience;
+    let height = data.height * 10 + " cm";
+    let weight = data.weight / 10 + " kg";
+    let baseExperience = data.base_experience + " xp";
     cardMainSectionRef.innerHTML += `
-    <table>
-    <tr>
-      <td>Height</td>
-      <td>${height} m</td>
-      <td>
-        <div class="progress" role="progressbar" aria-label="Default striped example" aria-valuenow="${height}" aria-valuemin="0" aria-valuemax="100">
-  <div class="progress-bar progress-bar-striped" style="width: ${height}%"></div>
-</div>
-      </td>
-    </tr>
-    <tr>
-      <td>Weight</td>
-      <td>${weight} kg</td>
-      <td>
-        <div class="progress" role="progressbar" aria-label="Default striped example" aria-valuenow="${weight}" aria-valuemin="0" aria-valuemax="100">
-             <div class="progress-bar progress-bar-striped" style="width: ${weight}%"></div>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td>Base Experience</td>
-      <td>${baseExperience} xp</td>
-      <td>
-        <div class="progress" role="progressbar" aria-label="Default striped example" aria-valuenow="${baseExperience}" aria-valuemin="0" aria-valuemax="100">
-  <div class="progress-bar progress-bar-striped" style="width: ${baseExperience}%"></div>
-</div>
-      </td>
-    </tr>
-    <tr>
-      <td>Abilities</td>
-      <td></td>
-      <td>
-        <div class="bar-container">
-          <div class="bar" style="width: 0%; background-color: #2196F3;"></div>
-        </div>
-      </td>
-    </tr>
-  </table>
-        `;
+<table class="table">
+    <tbody>
+      <tr>
+        <td class="spalte1">Height</td>
+        <td class="spalte2">${height}</td>
+        <td class="spalte3">
+          <div class="progress" role="progressbar" aria-valuenow="${height}" aria-valuemin="0" aria-valuemax="300">
+            <div class="progress-bar progress-bar-striped" style="width: ${height}%"></div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="spalte1">Weight</td>
+        <td class="spalte2">${weight}</td>
+        <td class="spalte3">
+          <div class="progress" role="progressbar" aria-valuenow="${weight}" aria-valuemin="0" aria-valuemax="200">
+            <div class="progress-bar progress-bar-striped" style="width: ${weight}%"></div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="spalte1">Base Experience</td>
+        <td class="spalte2">${baseExperience}</td>
+        <td class="spalte3">
+          <div class="progress" role="progressbar" aria-valuenow="${baseExperience}" aria-valuemin="0" aria-valuemax="500">
+            <div class="progress-bar progress-bar-striped" style="width: ${baseExperience / 5}%"></div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="spalte1">Abilities</td>
+        <td></td>
+        <td class=" cardMainSectionAbilitys"></td>
+      </tr>
+    </tbody>
+  </table>`;
+    let cardMainSectionAbilitysRef = document.querySelector(".cardMainSectionAbilitys");
+    let abilities = data.abilities.map(ability => ability.ability.name);
+    abilities.forEach(ability => {
+        cardMainSectionAbilitysRef.innerHTML += `
+        <p type="button" class="btn btn-outline-secondary" disabled>${ability}</p>`;
+    });
 }
 
 

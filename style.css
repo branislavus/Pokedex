@@ -151,7 +151,7 @@
 
   .cardInOverlay{
     width: 600px;
-    height: 900px;
+    height: 940px;
     background-color: white;
     padding: 10px;
     border-radius: 10px;
@@ -166,7 +166,7 @@
   }
 
   .page-Main-Stats-Evo{
-    height: 220px;
+    height: 240px;
     width: 100%;
   }
 
@@ -201,4 +201,34 @@
     width: 100%;
     display: flex;
     justify-content: space-around;
+  }
+
+  .spalte1{
+    width: 28%;
+  }
+
+  .spalte2{
+    width: 22%;
+  }
+
+  .spalte3{
+    width: 50%;
+  }
+
+  .spalte4{
+    width: 80%;
+  }
+
+  .spalte0{
+    width: 0%;
+  }
+
+  .cardMainSectionAbilitys{
+    display: flex;
+  }
+
+  table td{
+
+
+
   }
