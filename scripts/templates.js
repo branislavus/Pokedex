@@ -41,17 +41,15 @@ function getPokemonOverlayCard(pokemon){
           </div>
           <div class="card-body page-Main-Stats-Evo d_none" id="cardBodyStats">
             <h5 class="card-title">Stats Card</h5>
-            <p class="card-text card-text-main-stats-evo">
-              <span id="Hp" class="">Hp :</span>
-              <span id="Atack" class="">Atack :</span>
-              <span id="Special-A" class="">Special-A :</span>
-              <span id="Defense" class="">Defense :</span>
-              <span id="Special-D" class="">Special-D :</span>
-              <span id="Speed" class="">Speed :</span>
+            <p class="card-text card-text-main-stats-evo" id="card-text-main-stats-evo">
             </p>
           </div>
           <div class="card-body page-Main-Stats-Evo d_none" id="cardBodyEvoChain">
-            <h5 class="card-title">Name1 - Name2 - Name3</h5>
+            <div id="evo-names" class="evo-names">
+              <h5 class="card-title" id="evo-pictures-name1">Name1</h5>
+              <h5 class="card-title" id="evo-pictures-name2">Name2</h5>
+              <h5 class="card-title" id="evo-pictures-name3">Name3</h5>
+            </div>
             <div id="evo-pictures" class="evo-pictures">
               <div id="evo-picture1" class="evo-picture"></div>
               <div id="evo-picture2" class="evo-picture"></div>

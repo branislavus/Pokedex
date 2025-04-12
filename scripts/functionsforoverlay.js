@@ -60,9 +60,23 @@ async function fillMainCardHeightWeightBaseExperience(data) {
 
 
 
-function fillStatsCard() {
+function fillStatsCard(data) {
+    const cardBodyStatsRef = document.getElementById("card-text-main-stats-evo");
+    let stats = data.stats.map(stat => stat.stat.name);
+    let statsValues = data.stats.map(stat => stat.base_stat);
+    stats.forEach((stat, index) => {
+        cardBodyStatsRef.innerHTML += `<span id="${stat}" class="">${stat.charAt(0).toUpperCase() + stat.slice(1)} : ${statsValues[index]}</span>`;
+    });
 }
 
-function fillEvolutionCard() {
+async function fillEvolutionCard(data) {
+    const cardBodyEvoNamesRef = document.getElementById("evo-names");
+    const cardBodyEvoPicturesRef = document.getElementById("evo-pictures");
+    let response = await fetch(`https://pokeapi.co/api/v2/evolution-chain/${data.id}/`);
+    let dataEvo = await response.json();
+    console.log(dataEvo);
+    
+
+ 
 
 }
