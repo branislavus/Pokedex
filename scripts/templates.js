@@ -64,42 +64,42 @@ function getPokemonOverlayCard(pokemon){
         </div>`;
 }
 
-function getcardMainSectionRefTemplate(height, weight, baseExperience){
+function getCardMainSectionTemplate(height, weight, baseExperience, normalizedHeight, normalizedWeight, normalizedBaseExperience) {
   return `
-<table class="table">
-    <tbody>
-      <tr>
-        <td class="spalte1">Height</td>
-        <td class="spalte2">${height}</td>
-        <td class="spalte3">
-          <div class="progress" role="progressbar" aria-valuenow="${height}" aria-valuemin="0" aria-valuemax="300">
-            <div class="progress-bar progress-bar-striped" style="width: ${height}%"></div>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td class="spalte1">Weight</td>
-        <td class="spalte2">${weight}</td>
-        <td class="spalte3">
-          <div class="progress" role="progressbar" aria-valuenow="${weight}" aria-valuemin="0" aria-valuemax="200">
-            <div class="progress-bar progress-bar-striped" style="width: ${weight}%"></div>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td class="spalte1">Base Experience</td>
-        <td class="spalte2">${baseExperience}</td>
-        <td class="spalte3">
-          <div class="progress" role="progressbar" aria-valuenow="${baseExperience}" aria-valuemin="0" aria-valuemax="500">
-            <div class="progress-bar progress-bar-striped" style="width: ${baseExperience / 5}%"></div>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td class="spalte1">Abilities</td>
-        <td></td>
-        <td class=" cardMainSectionAbilitys"></td>
-      </tr>
-    </tbody>
+  <table class="table">
+      <tbody>
+          <tr>
+              <td class="spalte1">Height</td>
+              <td class="spalte2">${height}</td>
+              <td class="spalte3">
+                  <div class="progress" role="progressbar" aria-valuenow="${normalizedHeight}" aria-valuemin="0" aria-valuemax="100">
+                      <div class="progress-bar progress-bar-striped" style="width: ${normalizedHeight}%"></div>
+                  </div>
+              </td>
+          </tr>
+          <tr>
+              <td class="spalte1">Weight</td>
+              <td class="spalte2">${weight}</td>
+              <td class="spalte3">
+                  <div class="progress" role="progressbar" aria-valuenow="${normalizedWeight}" aria-valuemin="0" aria-valuemax="100">
+                      <div class="progress-bar progress-bar-striped" style="width: ${normalizedWeight}%"></div>
+                  </div>
+              </td>
+          </tr>
+          <tr>
+              <td class="spalte1">Base Experience</td>
+              <td class="spalte2">${baseExperience}</td>
+              <td class="spalte3">
+                  <div class="progress" role="progressbar" aria-valuenow="${normalizedBaseExperience}" aria-valuemin="0" aria-valuemax="100">
+                      <div class="progress-bar progress-bar-striped" style="width: ${normalizedBaseExperience}%"></div>
+                  </div>
+              </td>
+          </tr>
+          <tr>
+              <td class="spalte1">Abilities</td>
+              <td></td>
+              <td class="cardMainSectionAbilitys"></td>
+          </tr>
+      </tbody>
   </table>`;
 }

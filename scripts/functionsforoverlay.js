@@ -45,17 +45,22 @@ async function fillMainCard(data) {
 }
 
 async function fillMainCardHeightWeightBaseExperience(data) {
-    let cardMainSectionRef = document.getElementById("cardMainSection");
-    let height = data.height * 10 + " cm";
-    let weight = data.weight / 10 + " kg";
-    let baseExperience = data.base_experience + " xp";
-    cardMainSectionRef.innerHTML += getcardMainSectionRefTemplate(height, weight, baseExperience)
-    let cardMainSectionAbilitysRef = document.querySelector(".cardMainSectionAbilitys");
-    let abilities = data.abilities.map(ability => ability.ability.name);
-    abilities.forEach(ability => {
-        cardMainSectionAbilitysRef.innerHTML += `
-        <p type="button" class="btn btn-outline-secondary" disabled>${ability}</p>`;
-    });
+    const height = (data.height / 10).toFixed(1) + " m";
+    const weight = (data.weight / 10).toFixed(1) + " kg";
+    const baseExperience = data.base_experience + " XP";
+    const normalizedHeight = Math.min((data.height / 20) * 100, 100);
+    const normalizedWeight = Math.min((data.weight / 200) * 100, 100);
+    const normalizedBaseExperience = Math.min((data.base_experience / 500) * 100, 100);
+    const cardMainSectionHTML = getCardMainSectionTemplate(
+        height,
+        weight,
+        baseExperience,
+        normalizedHeight,
+        normalizedWeight,
+        normalizedBaseExperience
+    );
+    const cardMainSectionRef = document.getElementById("cardMainSection");
+    cardMainSectionRef.innerHTML = cardMainSectionHTML;
 }
 
 
@@ -69,51 +74,50 @@ function fillStatsCard(data) {
     });
 }
 
+
 async function fillEvolutionCard(data) {
     try {
         const cardBodyEvoNamesRef = document.getElementById("evo-names");
         const cardBodyEvoPicturesRef = document.getElementById("evo-pictures");
-
-        // Abrufen der Spezies-Daten
-        const speciesData = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${data.id}/`);
-        const speciesJson = await speciesData.json();
-
-        const evolutionChainData = await fetch(speciesJson.evolution_chain.url);
-        const evolutionChainJson = await evolutionChainData.json();
-
-        // Funktion zum Extrahieren der Evolution-Daten
-        async function extractEvolutionData(chain) {
-            if (!chain) return [];
-            let pokemonInfo = [];
-
-            // Name und Bild des aktuellen Pokémon abrufen
-            const name = chain.species.name;
-            const pokemonData = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
-            const pokemonJson = await pokemonData.json();
-            pokemonInfo.push({ name, img: pokemonJson.sprites.front_default });
-
-            // Falls es weitere Entwicklungen gibt, iteriere durch alle Möglichkeiten
-            for (const evolution of chain.evolves_to) {
-                const nextEvolutions = await extractEvolutionData(evolution);
-                pokemonInfo = pokemonInfo.concat(nextEvolutions);
-            }
-
-            return pokemonInfo;
-        }
-
-        // Evolution-Kette extrahieren
+        const speciesJson = await fetchSpeciesData(data.id);
+        const evolutionChainJson = await fetchEvolutionChain(speciesJson.evolution_chain.url);
         const pokemonInfo = await extractEvolutionData(evolutionChainJson.chain);
-
-        // Evolution-Daten in die HTML-Elemente einfügen
-        cardBodyEvoNamesRef.innerHTML = "";
-        cardBodyEvoPicturesRef.innerHTML = "";
-
-        pokemonInfo.forEach(pokemon => {
-            cardBodyEvoNamesRef.innerHTML += `<span class="evo-name">${pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</span>`;
-            cardBodyEvoPicturesRef.innerHTML += `<img src="${pokemon.img}" alt="${pokemon.name}" class="evo-picture">`;
-        });
-
+        renderEvolutionData(pokemonInfo, cardBodyEvoNamesRef, cardBodyEvoPicturesRef);
     } catch (error) {
         console.error("Fehler beim Abrufen der Evolution-Kette:", error);
     }
+}
+
+async function fetchSpeciesData(pokemonId) {
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${pokemonId}/`);
+    return await response.json();
+}
+
+async function fetchEvolutionChain(evolutionChainUrl) {
+    const response = await fetch(evolutionChainUrl);
+    return await response.json();
+}
+
+
+async function extractEvolutionData(chain) {
+    if (!chain) return [];
+    let pokemonInfo = [];
+    const name = chain.species.name;
+    const pokemonData = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
+    const pokemonJson = await pokemonData.json();
+    pokemonInfo.push({ name, img: pokemonJson.sprites.front_default });
+    for (const evolution of chain.evolves_to) {
+        const nextEvolutions = await extractEvolutionData(evolution);
+        pokemonInfo = pokemonInfo.concat(nextEvolutions);
+    }
+    return pokemonInfo;
+}
+
+function renderEvolutionData(pokemonInfo, namesRef, picturesRef) {
+    namesRef.innerHTML = "";
+    picturesRef.innerHTML = "";
+    pokemonInfo.forEach(pokemon => {
+        namesRef.innerHTML += `<span class="evo-name">${pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</span>`;
+        picturesRef.innerHTML += `<img src="${pokemon.img}" alt="${pokemon.name}" class="evo-picture">`;
+    });
 }
