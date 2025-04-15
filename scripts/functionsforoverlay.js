@@ -70,13 +70,50 @@ function fillStatsCard(data) {
 }
 
 async function fillEvolutionCard(data) {
-    const cardBodyEvoNamesRef = document.getElementById("evo-names");
-    const cardBodyEvoPicturesRef = document.getElementById("evo-pictures");
-    let response = await fetch(`https://pokeapi.co/api/v2/evolution-chain/${data.id}/`);
-    let dataEvo = await response.json();
-    console.log(dataEvo);
-    
+    try {
+        const cardBodyEvoNamesRef = document.getElementById("evo-names");
+        const cardBodyEvoPicturesRef = document.getElementById("evo-pictures");
 
- 
+        // Abrufen der Spezies-Daten
+        const speciesData = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${data.id}/`);
+        const speciesJson = await speciesData.json();
 
+        const evolutionChainData = await fetch(speciesJson.evolution_chain.url);
+        const evolutionChainJson = await evolutionChainData.json();
+
+        // Funktion zum Extrahieren der Evolution-Daten
+        async function extractEvolutionData(chain) {
+            if (!chain) return [];
+            let pokemonInfo = [];
+
+            // Name und Bild des aktuellen Pokémon abrufen
+            const name = chain.species.name;
+            const pokemonData = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
+            const pokemonJson = await pokemonData.json();
+            pokemonInfo.push({ name, img: pokemonJson.sprites.front_default });
+
+            // Falls es weitere Entwicklungen gibt, iteriere durch alle Möglichkeiten
+            for (const evolution of chain.evolves_to) {
+                const nextEvolutions = await extractEvolutionData(evolution);
+                pokemonInfo = pokemonInfo.concat(nextEvolutions);
+            }
+
+            return pokemonInfo;
+        }
+
+        // Evolution-Kette extrahieren
+        const pokemonInfo = await extractEvolutionData(evolutionChainJson.chain);
+
+        // Evolution-Daten in die HTML-Elemente einfügen
+        cardBodyEvoNamesRef.innerHTML = "";
+        cardBodyEvoPicturesRef.innerHTML = "";
+
+        pokemonInfo.forEach(pokemon => {
+            cardBodyEvoNamesRef.innerHTML += `<span class="evo-name">${pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</span>`;
+            cardBodyEvoPicturesRef.innerHTML += `<img src="${pokemon.img}" alt="${pokemon.name}" class="evo-picture">`;
+        });
+
+    } catch (error) {
+        console.error("Fehler beim Abrufen der Evolution-Kette:", error);
+    }
 }
