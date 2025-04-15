@@ -78,18 +78,14 @@ async function loadNextPokemons() {
 
 function renderPokemonCards() {
   pokemonRenderSectionRef.innerHTML = "";
-  for (let i = 0; i < pokemonNamesURLsArray.length; i++) {  
-    pokemonRenderSectionRef.innerHTML += `
-      <div class="pokemon-card" id="${pokemonNamesURLsArray[i].name}" onclick="pokemonOverlayCard('${pokemonNamesURLsArray[i].name}')">
-        <h3>#${pokemonNamesURLsArray[i].id} ${pokemonNamesURLsArray[i].name.charAt(0).toUpperCase() +  pokemonNamesURLsArray[i].name.slice(1)}</h3>
-        <div class="card" style="width: 18rem;">
-          <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonNamesURLsArray[i].id}.png" class="card-img-top" alt="pokemon picture ${pokemonNamesURLsArray[i].name}">
-          <div class="card-body ">
-            <div class="card-badges" id="pokemon-card-type${i}"></div>
-          </div>
-        </div>
-      </div>
-    `;
-    getPokemonTypes(i,pokemonNamesURLsArray[i].name);
+  for (let i = 0; i < pokemonNamesURLsArray.length; i++) {
+      const globalIndex = startLoadIndex + i;
+      renderPokemonCardTemplate(pokemonNamesURLsArray[i], globalIndex);
+      addPokemonTypes(globalIndex, pokemonNamesURLsArray[i].name);
   }
+  startLoadIndex += pokemonNamesURLsArray.length;
+}
+
+function addPokemonTypes(globalIndex, name) {
+  getPokemonTypes(globalIndex, name);
 }
