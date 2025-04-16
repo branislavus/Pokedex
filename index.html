@@ -20,6 +20,7 @@
   <script src="./scripts/templates.js"></script>
   <script src="./scripts/onclick.js"></script>
   <script src="./scripts/overlay.js"></script>
+  <script src="./scripts/spinner.js"></script>
 </head>
 
 <body onload="onload()">
@@ -62,6 +63,9 @@
       </div>
     </div>
   </nav>
+  <div id="loadingSpinner" class="loading-spinner ">
+    <img src="assets/img/pokemon_load_circle.PNG" alt="Loading" class="rotating-image">
+</div>
   <div id="pokemonOverlaySection">
     <div id="overlay" class="overlay hidden">
       <div id="cardInOverlay" class="cardInOverlay">

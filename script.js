@@ -62,8 +62,10 @@ async function loadPreviousPokemons() {
   } else {
     START_URL = previousPokemonURL;
   }
+  showLoadingSpinner();
   await makePokemonArray();
   renderPokemonCards();
+  hideLoadingSpinner()
 }
 
 async function loadNextPokemons() {
@@ -72,8 +74,10 @@ async function loadNextPokemons() {
   } else {
     START_URL = nextPokemonURL;
   }
+  showLoadingSpinner();
   await makePokemonArray();
   renderPokemonCards();
+  hideLoadingSpinner()
 }
 
 function renderPokemonCards() {

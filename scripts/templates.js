@@ -29,7 +29,7 @@ function getPokemonOverlayCard(pokemon){
                 <a id="statsOnClick" class="nav-link nav-link-Main-Stats-Evo" href="#" onclick="activeOnClick('statsOnClick')">Stats</a>
               </li>
               <li class="nav-item" >
-                <a id="evochainOnClick" class="nav-link nav-link-Main-Stats-Evo" aria-disabled="true" onclick="activeOnClick('evochainOnClick')">Evo-Chain</a>
+                <a id="evochainOnClick" class="nav-link nav-link-Main-Stats-Evo" href="#" onclick="activeOnClick('evochainOnClick')">Evo-Chain</a>
               </li>
             </ul>
           </div>
