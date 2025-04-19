@@ -23,7 +23,7 @@ async function onload() {
   await makePokemonArray();
   renderPokemonCards();
   hideLoadingSpinner();
-  // await get1302pokemonData(); load all 1302 pokemons in pokemonALLNamesURLsArray1302 array
+  loadAllPokemonDataInBackground();
 }
 
 async function makePokemonArray() {
@@ -59,6 +59,7 @@ function generatePokemonURLs() {
 }
 
 async function loadPreviousPokemons() {
+  showLoadingSpinner();
   if (previousPokemonURL == "") {
     return;
   } else {
@@ -67,10 +68,11 @@ async function loadPreviousPokemons() {
  
   await makePokemonArray();
   renderPokemonCards();
- 
+  hideLoadingSpinner();
 }
 
 async function loadNextPokemons() {
+  showLoadingSpinner();
   if (nextPokemonURL == "") {
     return;
   } else {
@@ -79,7 +81,7 @@ async function loadNextPokemons() {
   
   await makePokemonArray();
   renderPokemonCards();
-
+  hideLoadingSpinner();
 }
 
 function renderPokemonCards() {
