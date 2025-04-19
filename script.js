@@ -19,8 +19,10 @@ const cardInOverlayRef = document.getElementById("cardInOverlay");
 const topCardToFillRef = document.getElementById("topCardToFill");
 
 async function onload() {
+  showLoadingSpinner();
   await makePokemonArray();
   renderPokemonCards();
+  hideLoadingSpinner();
   // await get1302pokemonData(); load all 1302 pokemons in pokemonALLNamesURLsArray1302 array
 }
 
@@ -62,10 +64,10 @@ async function loadPreviousPokemons() {
   } else {
     START_URL = previousPokemonURL;
   }
-  showLoadingSpinner();
+ 
   await makePokemonArray();
   renderPokemonCards();
-  hideLoadingSpinner()
+ 
 }
 
 async function loadNextPokemons() {
@@ -74,10 +76,10 @@ async function loadNextPokemons() {
   } else {
     START_URL = nextPokemonURL;
   }
-  showLoadingSpinner();
+  
   await makePokemonArray();
   renderPokemonCards();
-  hideLoadingSpinner()
+
 }
 
 function renderPokemonCards() {
