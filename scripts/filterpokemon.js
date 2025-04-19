@@ -21,10 +21,26 @@ function filterPokemon() {
 }
 
 function renderFilteredPokemon(pokemonList) {
-    const pokemonRenderSectionRef = document.getElementById("pokemonRenderSection");
+    const bodyButtonOnTheBottomRef = document.getElementById("bodyButtonOnTheBottom");
+    const cancelFilteredPokemonsRef = document.getElementById("cancelFilteredPokemons");
     pokemonRenderSectionRef.innerHTML = "";
+    const storedData = localStorage.getItem("pokemonData");
+    if (!storedData) {
+        console.error("Keine Pokémon-Daten im Local Storage gefunden.");
+        return;
+    }
+    const allPokemon = JSON.parse(storedData);
 
-    pokemonList.forEach((pokemon, index) => {
-        renderPokemonCardTemplate(pokemon, index);
+    pokemonList.forEach(pokemon => {
+        const globalIndex = allPokemon.findIndex(p => p.name === pokemon.name);
+        renderPokemonCardTemplate(pokemon, globalIndex);
+        getPokemonTypes(globalIndex,pokemon.name);
+        bodyButtonOnTheBottomRef.classList.add("hidden");
+        cancelFilteredPokemonsRef.classList.remove("hidden");
+        cancelFilteredPokemonsRef.classList.add("btn");
     });
+}
+
+function cancelFilteredPokemons(){
+    location.reload();
 }
