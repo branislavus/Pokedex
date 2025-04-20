@@ -274,3 +274,35 @@
 .hidden {
   display: none;
 }
+
+.stat-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.stat-name {
+  flex: 1;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.stat-value {
+  margin-left: 10px;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.progress {
+  flex: 3;
+  height: 10px;
+  background-color: #e9ecef;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  background-color: #007bff;
+  height: 100%;
+  transition: width 0.6s ease;
+}

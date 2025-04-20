@@ -67,10 +67,22 @@ async function fillMainCardHeightWeightBaseExperience(data) {
 
 function fillStatsCard(data) {
     const cardBodyStatsRef = document.getElementById("card-text-main-stats-evo");
-    let stats = data.stats.map(stat => stat.stat.name);
-    let statsValues = data.stats.map(stat => stat.base_stat);
-    stats.forEach((stat, index) => {
-        cardBodyStatsRef.innerHTML += `<span id="${stat}" class="">${stat.charAt(0).toUpperCase() + stat.slice(1)} : ${statsValues[index]}</span>`;
+    cardBodyStatsRef.innerHTML = "";
+
+     data.stats.forEach(stat => {
+        const statName = stat.stat.name.charAt(0).toUpperCase() + stat.stat.name.slice(1); // Name formatieren
+        const baseStat = stat.base_stat; // Basiswert
+        const normalizedStat = Math.min((baseStat / 200) * 100, 100); // Normalisierung (z. B. Maximalwert 200)
+  
+        cardBodyStatsRef.innerHTML += `
+        <div class="stat-row">
+                <span class="stat-name">${statName}</span>
+                <span class="stat-value">${baseStat}</span>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped" role="progressbar" style="width: ${normalizedStat}%" aria-valuenow="${normalizedStat}" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+        `;
     });
 }
 
