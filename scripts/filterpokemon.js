@@ -3,7 +3,6 @@ function filterPokemon() {
 
     const storedData = localStorage.getItem("pokemonData");
     if (!storedData) {
-        console.error("Keine Pokémon-Daten im Local Storage gefunden.");
         return;
     }
 
@@ -26,7 +25,6 @@ function renderFilteredPokemon(pokemonList) {
     pokemonRenderSectionRef.innerHTML = "";
     const storedData = localStorage.getItem("pokemonData");
     if (!storedData) {
-        console.error("Keine Pokémon-Daten im Local Storage gefunden.");
         return;
     }
     const allPokemon = JSON.parse(storedData);
@@ -34,13 +32,13 @@ function renderFilteredPokemon(pokemonList) {
     pokemonList.forEach(pokemon => {
         const globalIndex = allPokemon.findIndex(p => p.name === pokemon.name);
         renderPokemonCardTemplate(pokemon, globalIndex);
-        getPokemonTypes(globalIndex,pokemon.name);
+        getPokemonTypes(globalIndex, pokemon.name);
         bodyButtonOnTheBottomRef.classList.add("hidden");
         cancelFilteredPokemonsRef.classList.remove("hidden");
         cancelFilteredPokemonsRef.classList.add("btn");
     });
 }
 
-function cancelFilteredPokemons(){
+function cancelFilteredPokemons() {
     location.reload();
 }

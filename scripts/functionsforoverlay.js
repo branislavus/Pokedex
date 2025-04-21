@@ -1,14 +1,10 @@
 async function fillOverlayCard(pokemon) {
-    try {
         const response = await fetch(BASE_URL2 + pokemon.id + "/");
         const data = await response.json();
         fillTopCard(data);
         fillMainCard(data);
         fillStatsCard(data);
         fillEvolutionCard(data);
-    } catch (error) {
-        console.log("fillTopCard funktion fehler:", error);
-    }
 }
 
 async function fillTopCard(data) {
@@ -98,16 +94,12 @@ function fillStatsCard(data) {
 
 
 async function fillEvolutionCard(data) {
-    try {
         const cardBodyEvoNamesRef = document.getElementById("evo-names");
         const cardBodyEvoPicturesRef = document.getElementById("evo-pictures");
         const speciesJson = await fetchSpeciesData(data.id);
         const evolutionChainJson = await fetchEvolutionChain(speciesJson.evolution_chain.url);
         const pokemonInfo = await extractEvolutionData(evolutionChainJson.chain);
         renderEvolutionData(pokemonInfo, cardBodyEvoNamesRef, cardBodyEvoPicturesRef);
-    } catch (error) {
-        console.error("Fehler beim Abrufen der Evolution-Kette:", error);
-    }
 }
 
 async function fetchSpeciesData(pokemonId) {
