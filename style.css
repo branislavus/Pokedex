@@ -124,6 +124,14 @@
     border-radius: 8px;
 }
 
+.evo-picture:hover{
+  width: 100px;
+  height: 100px;
+  border: #222222 1px dotted;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
 .overlay {
     position: fixed;
     top: 0;

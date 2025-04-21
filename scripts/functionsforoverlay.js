@@ -140,6 +140,6 @@ function renderEvolutionData(pokemonInfo, namesRef, picturesRef) {
     picturesRef.innerHTML = "";
     pokemonInfo.forEach(pokemon => {
         namesRef.innerHTML += `<span class="evo-name">${pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</span>`;
-        picturesRef.innerHTML += `<img src="${pokemon.img}" alt="${pokemon.name}" class="evo-picture">`;
+        picturesRef.innerHTML += `<img src="${pokemon.img}" alt="${pokemon.name}" class="evo-picture" onclick="playNoise('${pokemon.img}')">`;
     });
 }

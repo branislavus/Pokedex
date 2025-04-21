@@ -2,7 +2,6 @@
   async function get1302pokemonData() {
        let storedData = loadPokemonDataFromLocalStorage();
     if (storedData) {
-        console.log("Daten aus Local Storage geladen:", storedData);
         return storedData;
     }
     let urls = generatePokemonURLs();

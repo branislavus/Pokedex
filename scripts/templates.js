@@ -58,9 +58,9 @@ function getPokemonOverlayCard(pokemon){
           </div>
         </div>
         <div class="cardButtons">
-          <a href="#" class="btn btn-primary cardButtonsDesign">previous Card</a>
+          <a href="#" class="btn btn-primary cardButtonsDesign" onclick="showPreviousCard(currentPokemonName)">previous Card</a>
           <button class="btn btn-primary cardButtonsDesign" onclick="closeOverlay()">Close</button>
-          <a href="#" class="btn btn-primary cardButtonsDesign">next Card</a>
+          <a href="#" class="btn btn-primary cardButtonsDesign" onclick="showNextCard(currentPokemonName)">next Card</a>
         </div>`;
 }
 
