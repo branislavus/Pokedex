@@ -24,6 +24,10 @@
     padding: 0;
 }
 
+.logo{
+  height: 40px;
+  width: 40px;
+}
 
 .bodyButtonOnTheBottom{
   display: flex;
@@ -109,12 +113,6 @@
 .card-text-main-stats-evo{
     display: flex;
     flex-direction: column;
-}
-
-.evo-pictures{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
 }
 
 .evo-picture{
@@ -226,6 +224,7 @@
 
   .spalte1{
     width: 28%;
+    font-weight: bold;
   }
 
   .spalte2{
@@ -254,7 +253,8 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding-bottom: 20px;
+  padding-bottom: 40px;
+  padding-top: 40px;
 }
 
 .evo-names{
