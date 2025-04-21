@@ -36,7 +36,7 @@ async function fillTopCardbadges(data) {
 async function fillTopCardSprites(data) {
     const imageSectionRef = document.getElementById("imageSection");
     let sprites = data.sprites.other['official-artwork'].front_default;
-    imageSectionRef.innerHTML += `<img src="${sprites}" class="card-img-top" alt="pokemon picture ${data.name}">`;
+    imageSectionRef.innerHTML += `<img src="${sprites}" class="card-img-top card-img-top-overlay" alt="pokemon picture ${data.name}">`;
 }
 
 
@@ -61,9 +61,19 @@ async function fillMainCardHeightWeightBaseExperience(data) {
     );
     const cardMainSectionRef = document.getElementById("cardMainSection");
     cardMainSectionRef.innerHTML = cardMainSectionHTML;
+    fillMainCardAbilities(data);
 }
 
-
+function fillMainCardAbilities(data) {
+    const cardMainSectionAbilitysRef = document.getElementById("cardMainSectionAbilitys");
+    cardMainSectionAbilitysRef.innerHTML = "";
+    const abilities = data.abilities.map(ability => ability.ability.name);
+    cardMainSectionAbilitysRef.innerHTML = `
+        <ul>
+            ${abilities.map(ability => `<li>${ability}</li>`).join("")}
+        </ul>
+    `;
+}
 
 function fillStatsCard(data) {
     const cardBodyStatsRef = document.getElementById("card-text-main-stats-evo");
@@ -79,7 +89,7 @@ function fillStatsCard(data) {
                 <span class="stat-name">${statName}</span>
                 <span class="stat-value">${baseStat}</span>
                 <div class="progress">
-                    <div class="progress-bar progress-bar-striped" role="progressbar" style="width: ${normalizedStat}%" aria-valuenow="${normalizedStat}" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar " role="progressbar" style="width: ${normalizedStat}%" aria-valuenow="${normalizedStat}" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
             </div>
         `;

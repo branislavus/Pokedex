@@ -7,12 +7,14 @@ async function pokemonOverlayCard(pokemonName) {
     return;
   }
   cardInOverlayRef.innerHTML = getPokemonOverlayCard(pokemon);
-  overlay.classList.remove("hidden");
+    overlay.classList.remove("hidden");
+    document.body.classList.add("no-scroll");
   fillOverlayCard(pokemon);  
 }
 
 function closeOverlay() {
     overlay.classList.add("hidden");
+    document.body.classList.remove("no-scroll");
   }
   document.addEventListener("DOMContentLoaded", () => {
     const overlay = document.getElementById("overlay");
@@ -26,5 +28,6 @@ function closeOverlay() {
     });
     function closeOverlay() {
         overlay.classList.add("hidden");
+        document.body.classList.remove("no-scroll");
     }
 });

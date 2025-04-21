@@ -98,7 +98,7 @@ function getCardMainSectionTemplate(height, weight, baseExperience, normalizedHe
           <tr>
               <td class="spalte1">Abilities</td>
               <td></td>
-              <td class="cardMainSectionAbilitys"></td>
+              <td class="cardMainSectionAbilitys" id="cardMainSectionAbilitys"></td>
           </tr>
       </tbody>
   </table>`;
