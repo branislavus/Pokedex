@@ -8,11 +8,10 @@ let pokemonTotalAmount = 1025;
 const amountOfLoad = 20;
 let pokemonNamesURLsArray = [];
 let pokemonALLNamesURLsArray = [];
-let pokemonALLNamesURLsArray1302 = []; // Array for all 1302 Pokémon
+let pokemonALLNamesURLsArray1302 = [];
 let pokemonAllInformationsArray = [];
 let currentPokemonArray = [];
 let startLoadIndex = pokemonNamesURLsArray.length;
-
 const pokemonRenderSectionRef = document.getElementById("pokemonRenderSection");
 const overlay = document.getElementById("overlay");
 const cardInOverlayRef = document.getElementById("cardInOverlay");
@@ -20,10 +19,16 @@ const topCardToFillRef = document.getElementById("topCardToFill");
 
 async function onload() {
   showLoadingSpinner();
+  await loadAllPokemonDataInBackground();
+  await afterOnload();
+  hideLoadingSpinner();
+}
+
+async function afterOnload() {
+  showLoadingSpinner();
   await makePokemonArray();
   renderPokemonCards();
   hideLoadingSpinner();
-  loadAllPokemonDataInBackground();
 }
 
 async function makePokemonArray() {
@@ -53,7 +58,7 @@ function makeOffsetString() {
 function generatePokemonURLs() {
   let urls = [];
   for (let index = 1; index <= pokemonTotalAmount; index++) {
-      urls.push(`https://pokeapi.co/api/v2/pokemon/${index}/`);
+    urls.push(`https://pokeapi.co/api/v2/pokemon/${index}/`);
   }
   return urls;
 }
@@ -65,7 +70,7 @@ async function loadPreviousPokemons() {
   } else {
     START_URL = previousPokemonURL;
   }
- 
+
   await makePokemonArray();
   renderPokemonCards();
   hideLoadingSpinner();
@@ -78,7 +83,7 @@ async function loadNextPokemons() {
   } else {
     START_URL = nextPokemonURL;
   }
-  
+
   await makePokemonArray();
   renderPokemonCards();
   hideLoadingSpinner();
@@ -87,9 +92,9 @@ async function loadNextPokemons() {
 function renderPokemonCards() {
   pokemonRenderSectionRef.innerHTML = "";
   for (let i = 0; i < pokemonNamesURLsArray.length; i++) {
-      const globalIndex = startLoadIndex + i;
-      renderPokemonCardTemplate(pokemonNamesURLsArray[i], globalIndex);
-      addPokemonTypes(globalIndex, pokemonNamesURLsArray[i].name);
+    const globalIndex = startLoadIndex + i;
+    renderPokemonCardTemplate(pokemonNamesURLsArray[i], globalIndex);
+    addPokemonTypes(globalIndex, pokemonNamesURLsArray[i].name);
   }
   startLoadIndex += pokemonNamesURLsArray.length;
 }

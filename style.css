@@ -137,7 +137,6 @@
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(5px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -195,7 +194,8 @@
   .card-img-top-overlay{
     height: 440px;
     width: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    object-position: center;
   }
 
 
@@ -337,4 +337,45 @@
 .cancelFilteredPokemons{
   display: flex;
   justify-content: center;
+}
+
+.impressum {
+  max-width: 800px; /* Begrenze die Breite des Impressums */
+  margin: 50px auto; /* Zentriere das Impressum auf der Seite */
+  padding: 20px; /* Innenabstand */
+  background-color: #f8f9fa; /* Heller Hintergrund */
+  border: 1px solid #ddd; /* Dezenter Rahmen */
+  border-radius: 10px; /* Abgerundete Ecken */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Leichter Schatten */
+  font-family: Arial, sans-serif; /* Lesbare Schriftart */
+  line-height: 1.6; /* Angenehmer Zeilenabstand */
+  color: #333; /* Dunkle Schriftfarbe */
+}
+
+.impressum h1 {
+  font-size: 24px; /* Größere Schriftgröße für die Überschrift */
+  margin-bottom: 20px; /* Abstand unter der Überschrift */
+  text-align: center; /* Zentrierte Überschrift */
+  color: #007bff; /* Optional: Blaue Farbe für die Überschrift */
+}
+
+.impressum p {
+  margin-bottom: 15px; /* Abstand zwischen den Absätzen */
+}
+
+.impressum strong {
+  font-weight: bold; /* Fettgedruckter Text */
+}
+
+.impressum a {
+  color: #007bff; /* Blaue Links */
+  text-decoration: none; /* Unterstreichung entfernen */
+}
+
+.impressum a:hover {
+  text-decoration: underline; /* Unterstreichung beim Hover */
+}
+
+.impressum br {
+  line-height: 2; /* Abstand zwischen Zeilen bei Zeilenumbrüchen */
 }
