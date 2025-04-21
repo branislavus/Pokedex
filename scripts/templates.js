@@ -108,7 +108,7 @@ function renderPokemonCardTemplate(pokemon, globalIndex) {
   pokemonRenderSectionRef.innerHTML += `
       <div class="pokemon-card" id="${pokemon.name}" onclick="pokemonOverlayCard('${pokemon.name}')">
           <h3>#${pokemon.id} ${pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</h3>
-          <div class="card" style="width: 18rem;">
+          <div class="card" style="width: 16rem;">
               <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png" class="card-img-top" alt="pokemon picture ${pokemon.name}">
               <div class="card-body">
                   <div class="card-badges" id="pokemon-card-type${globalIndex}"></div>

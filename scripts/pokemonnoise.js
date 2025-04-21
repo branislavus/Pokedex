@@ -8,7 +8,6 @@ function playNoise(url) {
     const pokemonId = idMatch[1];
     const audioUrl = `https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/${pokemonId}.ogg`;
     const audio = new Audio(audioUrl);
-   
     audio.play().catch(error => {
         console.error(`Fehler beim Abspielen der Audio-Datei für ID ${pokemonId}:`, error);
     });
