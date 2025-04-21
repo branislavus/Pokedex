@@ -63,9 +63,14 @@
 .color-white { background-color: #F8F9FA; }
 .color-pink { background-color: #FF69B4; }
 
-#pokemonRenderSection{
-    display: flex;
-    flex-wrap: wrap;
+
+.pokemonRenderSection {
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
 }
 
 .pokemon-card{
