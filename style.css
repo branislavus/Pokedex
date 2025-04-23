@@ -340,7 +340,7 @@
 }
 
 .impressum {
-  max-width: 800px; /* Begrenze die Breite des Impressums */
+  max-width: 1920px;
   margin: 50px auto; /* Zentriere das Impressum auf der Seite */
   padding: 20px; /* Innenabstand */
   background-color: #f8f9fa; /* Heller Hintergrund */
