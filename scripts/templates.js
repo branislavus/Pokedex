@@ -55,13 +55,13 @@ function getPokemonOverlayCard(pokemon) {
               <div id="evo-picture2" class="evo-picture"></div>
               <div id="evo-picture3" class="evo-picture"></div>
             </div> 
-            <div class="pressTheButtonText">press the button to hear the sound of this lovely pokemons</div>     
+            <div class="pressTheButtonText">press the evo-pictures to hear the sound of this lovely pokemons</div>     
           </div>
         </div>
          <div class="cardButtons">
-  <a href="#" id="previousButton" class="btn btn-primary cardButtonsDesign" onclick="showPreviousCard(currentPokemonName)">Previous Card</a>
+  <a href="#" id="previousButton" class="btn btn-primary cardButtonsDesign" onclick="showPreviousCard(currentPokemonName)">Previous</a>
   <button id="closeButton" class="btn btn-primary cardButtonsDesign" onclick="closeOverlay()">Close</button>
-  <a href="#" id="nextButton" class="btn btn-primary cardButtonsDesign" onclick="showNextCard(currentPokemonName)">Next Card</a>
+  <a href="#" id="nextButton" class="btn btn-primary cardButtonsDesign" onclick="showNextCard(currentPokemonName)">Next</a>
 </div>`;
 }
 
