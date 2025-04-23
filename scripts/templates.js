@@ -1,5 +1,5 @@
 function getPokemonCardTemplate(noteIndex) {
-    return ` <div class="card" style="width: 18rem;">
+  return ` <div class="card" style="width: 18rem;">
           <img src="..." class="card-img-top" alt="pokemon picture${pokemonNamesURLsArray[noteIndex]["ID"]}">
           <div class="card-body">
             <p class="card-text">${pokemonNamesURLsArray[noteIndex]["name"]}</p>
@@ -7,8 +7,8 @@ function getPokemonCardTemplate(noteIndex) {
         </div>`;
 }
 
-function getPokemonOverlayCard(pokemon){
- return `<div id="topCardToFill" class="card-body">
+function getPokemonOverlayCard(pokemon) {
+  return `<div id="topCardToFill" class="card-body">
             <div id="imageSection" class="imageSection">
             </div>
             <div class="card">
@@ -54,7 +54,8 @@ function getPokemonOverlayCard(pokemon){
               <div id="evo-picture1" class="evo-picture"></div>
               <div id="evo-picture2" class="evo-picture"></div>
               <div id="evo-picture3" class="evo-picture"></div>
-            </div>      
+            </div> 
+            <div class="pressTheButtonText">press the button to hear the sound of this lovely pokemons</div>     
           </div>
         </div>
         <div class="cardButtons">

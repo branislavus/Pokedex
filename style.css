@@ -115,19 +115,23 @@
     flex-direction: column;
 }
 
-.evo-picture{
-    width: 100px;
-    height: 100px;
-    border: #222222 1px dotted;
-    border-radius: 8px;
-}
-
-.evo-picture:hover{
+.evo-picture {
   width: 100px;
   height: 100px;
   border: #222222 1px dotted;
   border-radius: 8px;
+  transition: transform 0.5s ease, box-shadow 0.3s ease;
+}
+
+.evo-picture:hover {
+  transform: translateY(10px) scale(1.1);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   cursor: pointer;
+}
+
+.evo-picture:active {
+  transform: scale(0.9); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .overlay {
@@ -378,4 +382,10 @@
 
 .impressum br {
   line-height: 2; /* Abstand zwischen Zeilen bei Zeilenumbrüchen */
+}
+
+.pressTheButtonText {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
 }
