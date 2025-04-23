@@ -58,11 +58,11 @@ function getPokemonOverlayCard(pokemon) {
             <div class="pressTheButtonText">press the button to hear the sound of this lovely pokemons</div>     
           </div>
         </div>
-        <div class="cardButtons">
-          <a href="#" class="btn btn-primary cardButtonsDesign" onclick="showPreviousCard(currentPokemonName)">previous Card</a>
-          <button class="btn btn-primary cardButtonsDesign" onclick="closeOverlay()">Close</button>
-          <a href="#" class="btn btn-primary cardButtonsDesign" onclick="showNextCard(currentPokemonName)">next Card</a>
-        </div>`;
+         <div class="cardButtons">
+  <a href="#" id="previousButton" class="btn btn-primary cardButtonsDesign" onclick="showPreviousCard(currentPokemonName)">Previous Card</a>
+  <button id="closeButton" class="btn btn-primary cardButtonsDesign" onclick="closeOverlay()">Close</button>
+  <a href="#" id="nextButton" class="btn btn-primary cardButtonsDesign" onclick="showNextCard(currentPokemonName)">Next Card</a>
+</div>`;
 }
 
 function getCardMainSectionTemplate(height, weight, baseExperience, normalizedHeight, normalizedWeight, normalizedBaseExperience) {

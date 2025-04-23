@@ -389,3 +389,8 @@
   text-align: center;
   margin-top: 10px;
 }
+
+.btn.disabled {
+  pointer-events: none;
+  opacity: 0.6;
+}
