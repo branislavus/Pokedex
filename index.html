@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pokedex</title>
-  <link rel="icon" type="image/x-icon" href="./favicon.ico">
+  <link rel="icon" type="image/ico" href="./favicon.ico">
   <link rel="stylesheet" href="./style.css">
   <link rel="stylesheet" href="./styles/standard.css">
   <link rel="stylesheet" href="./fonts/fonts.css">
@@ -64,8 +64,8 @@
   <div id="pokemonRenderSection" class="pokemonRenderSection">
   </div>
   <div id="bodyButtonOnTheBottom" class="bodyButtonOnTheBottom">
-    <button type="button" class="btn btn-primary" onclick="loadPreviousPokemons()">Load previous Pokemons</button>
-    <button type="button" class="btn btn-primary" onclick="loadNextPokemons()">Load next Pokemons</button>
+    <button id="loadPreviousButton" type="button" class="btn btn-primary" onclick="loadPreviousPokemons()">Load Previous Pokemons</button>
+<button id="loadNextButton" type="button" class="btn btn-primary" onclick="loadNextPokemons()">Load Next Pokemons</button>
   </div>
   <div class="cancelFilteredPokemons">
     <button id="cancelFilteredPokemons" type="button" class=" btn-primary hidden" onclick="cancelFilteredPokemons()">cancel filter</button>

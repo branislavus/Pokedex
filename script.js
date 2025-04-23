@@ -64,29 +64,46 @@ function generatePokemonURLs() {
 }
 
 async function loadPreviousPokemons() {
+  disableButtons();
   showLoadingSpinner();
-  if (previousPokemonURL == "") {
-    return;
+  if (!previousPokemonURL) {
+    START_URL = `https://pokeapi.co/api/v2/pokemon?offset=${pokemonTotalAmount - amountOfLoad}&limit=${amountOfLoad}`;
   } else {
     START_URL = previousPokemonURL;
   }
-
   await makePokemonArray();
   renderPokemonCards();
   hideLoadingSpinner();
+  enableButtons();
 }
 
 async function loadNextPokemons() {
+  disableButtons();
   showLoadingSpinner();
-  if (nextPokemonURL == "") {
-    return;
+  if (!nextPokemonURL || START_URL.includes(`offset=${pokemonTotalAmount}`)) {
+    START_URL = `https://pokeapi.co/api/v2/pokemon?offset=0&limit=${amountOfLoad}`;
   } else {
-    START_URL = nextPokemonURL;
+    const nextOffset = parseInt(nextPokemonURL.split("offset=")[1].split("&")[0]);
+    if (nextOffset >= pokemonTotalAmount) {
+      START_URL = `https://pokeapi.co/api/v2/pokemon?offset=0&limit=${amountOfLoad}`;
+    } else {
+      START_URL = nextPokemonURL;
+    }
   }
-
   await makePokemonArray();
   renderPokemonCards();
   hideLoadingSpinner();
+  enableButtons();
+}
+
+function disableButtons() {
+  document.getElementById("loadPreviousButton").disabled = true;
+  document.getElementById("loadNextButton").disabled = true;
+}
+
+function enableButtons() {
+  document.getElementById("loadPreviousButton").disabled = false;
+  document.getElementById("loadNextButton").disabled = false;
 }
 
 function renderPokemonCards() {
