@@ -8,11 +8,11 @@ function getPokemonCardTemplate(noteIndex) {
 }
 
 function getPokemonOverlayCard(pokemon) {
-  return `<div id="topCardToFill" class="card-body">
+  return `<div id="topCardToFill" class="card-body topCardToFill">
             <div id="imageSection" class="imageSection">
             </div>
             <div class="card">
-              <div class="card-body">
+              <div class="card-body card-body-overlay-under-image">
                 <div id="underImageSection" class="underImageSection">
                 </div>
               </div>
@@ -20,7 +20,7 @@ function getPokemonOverlayCard(pokemon) {
             
           </div>
         <div class="card text-center groupcard-main-stats-evo">
-          <div class="card-header">
+          <div class="card-header card-header-all">
             <ul class="nav nav-tabs card-header-tabs">
               <li class="nav-item" >
                 <a id="mainOnClick" class="nav-link nav-link-Main-Stats-Evo active" aria-current="true" href="#" onclick="activeOnClick('mainOnClick')">Main</a>
@@ -34,13 +34,13 @@ function getPokemonOverlayCard(pokemon) {
             </ul>
           </div>
           <div class="card-body page-Main-Stats-Evo" id="cardBodyMain" >
-            <h5 class="card-title">Main Card</h5>
+            <h5 class="card-title card-title-main">Main Card</h5>
             <p id="cardMainSection" class="card-text card-text-main-stats-evo">
             
             </p>
           </div>
           <div class="card-body page-Main-Stats-Evo d_none" id="cardBodyStats">
-            <h5 class="card-title">Stats Card</h5>
+            <h5 class="card-title card-title-Stats">Stats Card</h5>
             <p class="card-text card-text-main-stats-evo" id="card-text-main-stats-evo">
             </p>
           </div>

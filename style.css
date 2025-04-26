@@ -24,6 +24,10 @@
   padding: 0;
 }
 
+ul{
+  margin-bottom: 0 !important;
+}
+
 .logo {
   height: 40px;
   width: 40px;
@@ -149,6 +153,9 @@
   background-color: #FF69B4;
 }
 
+.card-header-all{
+  padding-bottom: 0 !important;
+}
 
 .pokemonRenderSection {
   max-width: 1920px;
@@ -175,14 +182,6 @@
   /* Schatten hinzufügen */
   border-color: var(--type-electric);
   /* Optional: Rahmenfarbe ändern */
-}
-
-.overlayPokemonCard {
-  border: #A0A0A0 2px solid;
-  border-radius: 6px;
-  padding: 8px;
-  margin: 8px;
-  cursor: pointer;
 }
 
 .cardButtons {
@@ -231,16 +230,23 @@
 
 .overlayPokemonCard {
   background-color: white;
+  border: #A0A0A0 2px solid;
   border-radius: 10px;
-  padding: 20px;
+  padding: 8px;
+  margin: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   width: 32rem;
   max-width: 90%;
   z-index: 900;
+  cursor: pointer;
 }
 
 .overlayCardIdName {
   width: 50%;
+}
+
+.card-title{
+  margin: 0 !important;
 }
 
 .cardInOverlay {
@@ -251,7 +257,7 @@
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  justify-content: end;
+  justify-content: start;
 }
 
 .groupcard-main-stats-evo {
@@ -260,12 +266,12 @@
 }
 
 .page-Main-Stats-Evo {
-  height: 220px;
+  height: 254px;
   width: 100%;
 }
 
 .card-text-main-stats-evo {
-  height: 100%;
+  height: 90%;
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -277,16 +283,23 @@
 
 .underImageSection {
   display: flex;
+  align-items: center;
+
 }
 
 .card-img-top-overlay {
-  height: 440px;
+  height: 370px;
   width: 100%;
   object-fit: contain;
   object-position: center;
 }
 
 
+.card-body-overlay-under-image{
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+
+}
 
 .card-badges {
   display: flex;
@@ -310,17 +323,23 @@
   justify-content: space-around;
 }
 
+
+
 .spalte1 {
-  width: 28%;
+  width: 33%;
   font-weight: bold;
+
 }
 
 .spalte2 {
-  width: 22%;
+  width: 20%;
+
+
 }
 
 .spalte3 {
-  width: 50%;
+  width: 54%;
+
 }
 
 .spalte4 {
@@ -343,6 +362,7 @@
   align-items: center;
   /* Vertikal zentrieren */
   margin: 10px 0;
+  margin-bottom: 16px;
   /* Abstand zwischen den Abschnitten */
 }
 
@@ -392,24 +412,39 @@
   display: none;
 }
 
+.card-title-main{
+  margin-bottom: 10px !important;
+}
+
+.card-title-Stats{
+  margin-bottom: 16px !important;
+}
+
 .stat-row {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
 }
 
 .stat-name {
+  width: 79px;
+  white-space: nowrap;
   flex: 1;
   font-weight: bold;
   text-transform: capitalize;
 }
 
 .stat-value {
+  width: 50px;
+  text-align: right;
   margin-left: 10px;
   margin-right: 10px;
   font-weight: bold;
 }
 
 .progress {
+  width: 200px;
   flex: 3;
   height: 10px;
   background-color: #e9ecef;
@@ -497,7 +532,7 @@
 .pressTheButtonText {
   display: block;
   text-align: center;
-  margin-top: 18px;
+  margin-top: 26px;
   font-size: 14px;
   color: #555;
 }

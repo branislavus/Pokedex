@@ -85,7 +85,7 @@ function fillStatsCard(data) {
                 <span class="stat-name">${statName}</span>
                 <span class="stat-value">${baseStat}</span>
                 <div class="progress">
-                    <div class="progress-bar " role="progressbar" style="width: ${normalizedStat}%" aria-valuenow="${normalizedStat}" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar progress-bar-striped" role="progressbar" style="width: ${normalizedStat}%" aria-valuenow="${normalizedStat}" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
             </div>
         `;
