@@ -1,4 +1,3 @@
-
 async function get1302pokemonData() {
     let storedData = loadPokemonDataFromLocalStorage();
     if (storedData) {

@@ -35,7 +35,6 @@ async function fillTopCardSprites(data) {
     imageSectionRef.innerHTML += `<img src="${sprites}" class="card-img-top card-img-top-overlay" alt="pokemon picture ${data.name}">`;
 }
 
-
 async function fillMainCard(data) {
     await fillMainCardHeightWeightBaseExperience(data);
 }
@@ -76,10 +75,9 @@ function fillStatsCard(data) {
     cardBodyStatsRef.innerHTML = "";
 
      data.stats.forEach(stat => {
-        const statName = stat.stat.name.charAt(0).toUpperCase() + stat.stat.name.slice(1); // Name formatieren
-        const baseStat = stat.base_stat; // Basiswert
-        const normalizedStat = Math.min((baseStat / 200) * 100, 100); // Normalisierung (z. B. Maximalwert 200)
-  
+        const statName = stat.stat.name.charAt(0).toUpperCase() + stat.stat.name.slice(1);
+        const baseStat = stat.base_stat;
+        const normalizedStat = Math.min((baseStat / 200) * 100, 100);
         cardBodyStatsRef.innerHTML += `
         <div class="stat-row">
                 <span class="stat-name">${statName}</span>
@@ -91,7 +89,6 @@ function fillStatsCard(data) {
         `;
     });
 }
-
 
 async function fillEvolutionCard(data) {
         const cardBodyEvoNamesRef = document.getElementById("evo-names");
@@ -111,7 +108,6 @@ async function fetchEvolutionChain(evolutionChainUrl) {
     const response = await fetch(evolutionChainUrl);
     return await response.json();
 }
-
 
 async function extractEvolutionData(chain) {
     if (!chain) return [];

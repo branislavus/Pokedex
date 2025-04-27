@@ -39,25 +39,26 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="./impressum.html" target="_blank" rel="noopener">Impressum</a>
+            <a class="nav-link active" aria-current="page" href="./impressum.html" target="_blank"
+              rel="noopener">Impressum</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="https://github.com/branislavus/Pokedex" target="_blank" rel="noopener">Github</a>
+            <a class="nav-link active" aria-current="page" href="https://github.com/branislavus/Pokedex" target="_blank"
+              rel="noopener">Github</a>
           </li>
-          
+
         </ul>
         <form class="d-flex" role="search">
-          <input class="form-control me-2" id="searchInput" type="search" placeholder="Search Pokémon..." aria-label="Search"  oninput="filterPokemon()">
+          <input class="form-control me-2" id="searchInput" type="search" placeholder="Search Pokémon..."
+            aria-label="Search" oninput="filterPokemon()">
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
       </div>
     </div>
   </nav>
-
   <div id="loadingSpinner" class="loading-spinner hidden">
     <img src="assets/img/circle_pokemon_spinner.PNG" alt="Loading" class="rotating-image">
   </div>
-
   <div id="pokemonOverlaySection">
     <div id="overlay" class="overlay hidden">
       <div id="cardInOverlay" class="cardInOverlay">
@@ -67,14 +68,15 @@
   <div id="pokemonRenderSection" class="pokemonRenderSection">
   </div>
   <div id="bodyButtonOnTheBottom" class="bodyButtonOnTheBottom">
-    <button id="loadPreviousButton" type="button" class="btn btn-primary loadPreviousButton" onclick="loadPreviousPokemons()">Back</button>
-<button id="loadNextButton" type="button" class="btn btn-primary loadNextButton" onclick="loadNextPokemons()">Next</button>
+    <button id="loadPreviousButton" type="button" class="btn btn-primary loadPreviousButton"
+      onclick="loadPreviousPokemons()">Back</button>
+    <button id="loadNextButton" type="button" class="btn btn-primary loadNextButton"
+      onclick="loadNextPokemons()">Next</button>
   </div>
   <div class="cancelFilteredPokemons">
-    <button id="cancelFilteredPokemons" type="button" class=" btn-primary hidden" onclick="cancelFilteredPokemons()">cancel filter</button>
+    <button id="cancelFilteredPokemons" type="button" class=" btn-primary hidden"
+      onclick="cancelFilteredPokemons()">cancel filter</button>
   </div>
-   
-
   <script src="./script.js"></script>
 </body>
 
