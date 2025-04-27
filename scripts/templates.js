@@ -11,7 +11,7 @@ function getPokemonOverlayCard(pokemon) {
   return `<div id="topCardToFill" class="card-body topCardToFill">
             <div id="imageSection" class="imageSection">
             </div>
-            <div class="card">
+            <div class="card card-for-mobile-size">
               <div class="card-body card-body-overlay-under-image">
                 <div id="underImageSection" class="underImageSection">
                 </div>
@@ -19,7 +19,7 @@ function getPokemonOverlayCard(pokemon) {
             </div>
             
           </div>
-        <div class="card text-center groupcard-main-stats-evo">
+        <div class="card card-for-mobile-size text-center groupcard-main-stats-evo">
           <div class="card-header card-header-all">
             <ul class="nav nav-tabs card-header-tabs">
               <li class="nav-item" >

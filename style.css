@@ -24,7 +24,7 @@
   padding: 0;
 }
 
-ul{
+ul {
   margin-bottom: 0 !important;
 }
 
@@ -153,7 +153,7 @@ ul{
   background-color: #FF69B4;
 }
 
-.card-header-all{
+.card-header-all {
   padding-bottom: 0 !important;
 }
 
@@ -245,7 +245,7 @@ ul{
   width: 50%;
 }
 
-.card-title{
+.card-title {
   margin: 0 !important;
 }
 
@@ -295,7 +295,7 @@ ul{
 }
 
 
-.card-body-overlay-under-image{
+.card-body-overlay-under-image {
   padding-top: 0.5rem !important;
   padding-bottom: 0.5rem !important;
 
@@ -323,23 +323,17 @@ ul{
   justify-content: space-around;
 }
 
-
-
 .spalte1 {
   width: 33%;
   font-weight: bold;
-
 }
 
 .spalte2 {
   width: 20%;
-
-
 }
 
 .spalte3 {
   width: 54%;
-
 }
 
 .spalte4 {
@@ -412,11 +406,11 @@ ul{
   display: none;
 }
 
-.card-title-main{
+.card-title-main {
   margin-bottom: 10px !important;
 }
 
-.card-title-Stats{
+.card-title-Stats {
   margin-bottom: 16px !important;
 }
 
@@ -596,7 +590,8 @@ ul{
   }
 
   .navbar-brand {
-    font-size: 18px; /* Kleinere Schriftgröße */
+    font-size: 18px;
+    /* Kleinere Schriftgröße */
   }
 
   .impressum {
@@ -615,13 +610,17 @@ ul{
 
 @media (max-width: 628px) {
   .overlayPokemonCard {
-    width: 156px; /* Breite halbiert */
-    padding: 4px; /* Innenabstand halbiert */
+    width: 156px;
+    /* Breite halbiert */
+    padding: 4px;
+    /* Innenabstand halbiert */
   }
 
   .pokemon-card {
-    width: 138px; /* Breite halbiert */
-    margin: 5px; /* Abstand halbiert */
+    width: 138px;
+    /* Breite halbiert */
+    margin: 5px;
+    /* Abstand halbiert */
   }
 
   .navbar {
@@ -630,63 +629,208 @@ ul{
   }
 
   .navbar-brand {
-    font-size: 8px; /* Schriftgröße halbiert */
+    font-size: 8px;
+    /* Schriftgröße halbiert */
   }
 
   .impressum {
-    padding: 4px; /* Innenabstand halbiert */
-    font-size: 6px; /* Schriftgröße halbiert */
+    padding: 4px;
+    /* Innenabstand halbiert */
+    font-size: 6px;
+    /* Schriftgröße halbiert */
   }
 
   .cardButtonsDesign {
-    width: 50px; /* Breite halbiert */
-    font-size: 5px; /* Schriftgröße halbiert */
+    width: 50px;
+    /* Breite halbiert */
+    font-size: 5px;
+    /* Schriftgröße halbiert */
   }
 
   .evo-picture {
-    width: 40px; /* Breite halbiert */
-    height: 40px; /* Höhe halbiert */
+    width: 40px;
+    /* Breite halbiert */
+    height: 40px;
+    /* Höhe halbiert */
   }
 
   .card-text-main-stats-evo {
-    font-size: 7px; /* Schriftgröße halbiert */
+    font-size: 10px;
+    /* Schriftgröße halbiert */
   }
 
   .badgeOfType {
-    width: 50px; /* Breite halbiert */
-    height: 15px; /* Höhe halbiert */
-    font-size: 8px; /* Schriftgröße halbiert */
+    width: 50px;
+    /* Breite halbiert */
+    height: 15px;
+    /* Höhe halbiert */
+    font-size: 8px;
+    /* Schriftgröße halbiert */
     margin-left: 2px;
     margin-right: 2px;
   }
 
   .rotating-image {
-    width: 100px; /* Breite halbiert */
-    height: 100px; /* Höhe halbiert */
+    width: 100px;
+    /* Breite halbiert */
+    height: 100px;
+    /* Höhe halbiert */
   }
 
-  .progress {
-    height: 5px; /* Höhe halbiert */
-  }
-
-  .progress-bar {
-    height: 5px; /* Höhe halbiert */
-  }
-  .cardPokemonName{
+  .cardPokemonName {
     font-size: 16px;
   }
-  .card{
-    width: 7.3rem !important; 
+
+  .card {
+    width: 7.3rem !important;
   }
+
   .pokemonRenderSection {
     gap: 0;
     padding: 0px;
   }
-  .card-body-badges{
+
+  .card-body-badges {
     padding: 8px !important;
   }
-  .badgeOfType{
+
+  .badgeOfType {
     margin-left: 2px;
     margin-right: 2px;
   }
+}
+
+@media (max-width: 628px) {
+  .card-for-mobile-size {
+    width: 100% !important;
+    /* Nutze die volle Breite des Containers */
+    max-width: 300px;
+    /* Begrenze die maximale Breite */
+    margin: 0 auto;
+    /* Zentriere die Karte */
+    padding: 1px;
+    /* Innenabstand für die Karte */
+    box-sizing: border-box;
+  }
+
+  .cardInOverlay {
+    width: 300px;
+    /* Reduzierte Breite */
+    height: 600px;
+    ;
+    /* Höhe an den Inhalt anpassen */
+    padding: 8px;
+    /* Weniger Innenabstand */
+  }
+
+  .card-title {
+    font-size: 16px;
+    /* Kleinere Schriftgröße für Titel */
+    text-align: center;
+    /* Zentrierter Text */
+  }
+
+  .card-img-top-overlay {
+    height: 200px;
+    /* Reduzierte Höhe für das Bild */
+    width: 100%;
+    /* Volle Breite */
+    object-fit: contain;
+    /* Bild proportional anpassen */
+  }
+
+  .card-body-overlay-under-image {
+    padding: 4px;
+    /* Weniger Innenabstand */
+  }
+
+  .card-badges {
+    flex-wrap: wrap;
+    /* Badges umbrechen, falls nötig */
+    justify-content: center;
+    /* Zentrierte Badges */
+    gap: 4px;
+    /* Abstand zwischen den Badges */
+  }
+
+  .badgeOfType {
+    width: 42px;
+    /* Kleinere Breite für Badges */
+    height: 20px;
+    /* Kleinere Höhe für Badges */
+    font-size: 10px;
+    /* Kleinere Schriftgröße */
+  }
+
+  .card-title-Stats {
+    margin-bottom: 24px !important;
+  }
+
+
+  .groupcard-main-stats-evo {
+    height: 237px;
+    margin-top: 8px;
+  }
+
+  .page-Main-Stats-Evo {
+    height: 237px;
+    padding: 6px !important;
+    margin-right: 0;
+  }
+
+  .stat-row {
+    margin-bottom: 4px;
+    /* Weniger Abstand zwischen den Zeilen */
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .stat-name {
+    width: 80px;
+    /* Kleinere Breite für den Namen */
+    font-size: 10px;
+    /* Kleinere Schriftgröße */
+    display: flex;
+    justify-content: start;
+  }
+
+  .progress {
+    flex: 0 0 150px;
+    width: 150px !important;
+    /* Kleinere Breite für den Fortschrittsbalken */
+    height: 8px;
+    /* Kleinere Höhe */
+    display: flex;
+    overflow: hidden;
+  }
+
+  .stat-value {
+    width: 20px;
+    /* Kleinere Breite für den Wert */
+    font-size: 12px;
+    /* Kleinere Schriftgröße */
+  }
+
+  .pressTheButtonText {
+    font-size: 12px;
+    /* Kleinere Schriftgröße */
+    margin-top: 10px;
+    /* Weniger Abstand nach oben */
+  }
+
+  .cardButtonsDesign {
+    width: 84px;
+    /* Kleinere Breite für Buttons */
+    font-size: 10px;
+    /* Kleinere Schriftgröße */
+    margin-top: 8px;
+    /* Weniger Abstand nach oben */
+  }
+
+  .spalte2 {
+    white-space: nowrap;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+  }
+
 }
