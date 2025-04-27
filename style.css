@@ -18,11 +18,18 @@
   --type-fairy: #EE99AC;
   --type-normal: #A8A878;
 }
-
 body{
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.newSizeNav{
+  width: 100%;
+}
+
+.newSizeNavContent{
+  max-width: 1780px;
 }
 
 * {
